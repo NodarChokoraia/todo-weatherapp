@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.list{
+    width: 100%;
+    height: 60px;
+    background-color: hsl(235, 24%, 19%);
+    display: flex;
+    align-items: center;
+    border-bottom:solid 2px hsl(236, 9%, 61%);
+}
+.list-ligth{
+    width: 100%;
+    height: 60px;
+    background-color:hsl(0, 0%, 98%);
+    display: flex;
+    align-items: center;
+    border-bottom:solid 2px hsl(236, 9%, 61%);
+}
+
+.list-active{
+    width: 100%;
+    height: 60px;
+    background-color: hsl(235, 24%, 19%);
+    display: flex;
+    align-items: center;
+    border-bottom:solid 2px hsl(236, 9%, 61%);
+
+}
+.list-active-ligth{
+    width: 100%;
+    height: 60px;
+    background-color:hsl(0, 0%, 98%);
+    display: flex;
+    align-items: center;
+    border-bottom:solid 2px hsl(236, 9%, 61%);
+
+}
+.list-check{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: solid hsl(235, 16%, 43%) 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+.list-active .list-check{
+    background:linear-gradient( #57ddffff , #c058f3ff );
+    border: none;
+}
+.list-active-ligth .list-check{
+    background:linear-gradient( #57ddffff , #c058f3ff );
+    border: none;
+}
+.list-check img{
+    display: none;
+}
+.list-active .list-check >  img{
+    display: inline;
+}
+.list-active-ligth .list-check >  img{
+    display: inline;
+}
+.list-p{
+    position: relative;
+    color: hsl(237, 14%, 26%);
+    font-family:Josefin Sans ;
+    font-size: 18px;
+    height: fit-content;
+    width: fit-content;
+    
+    
+}
+.list-div{
+    width: 70%;
+    overflow-x: auto;
+    margin-left: 5%;
+}
+
+.list-active p::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    
+    background-color: hsl(235, 16%, 43%);
+}
+.list-active-ligth p::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    
+    background-color: hsl(235, 16%, 43%);
+}
+.list-cross{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: none;
+    margin-left: 5%;
+}
+.list:hover> .list-cross{
+    display: block;
+}
+.list-ligth:hover> .list-cross{
+    display: block;
+}
+.list-active:hover> .list-cross{
+    display: block;
+}
+.list-active-ligth:hover> .list-cross{
+    display: block;
+}

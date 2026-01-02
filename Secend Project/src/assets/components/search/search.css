@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-search{
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    background-color: hsl(235, 24%, 19%);
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.main-search-ligth{
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 98%);
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.main-search input{
+    color: hsl(236, 9%, 61%);
+    width: 80%;
+    margin-left: 5%;
+    height: 90%;
+    background-color: transparent;
+    font-family:Josefin Sans ;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}
+.main-search-ligth input{
+    color: hsl(236, 9%, 61%);
+    width: 80%;
+    margin-left: 5%;
+    height: 90%;
+    background-color: transparent;
+    font-family:Josefin Sans ;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}
+
+.search-check{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: solid hsl(235, 16%, 43%) 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 5%;
+}
+.search-check:active{
+    background:linear-gradient( #57ddffff , #c058f3ff );
+    border: none;
+}
+.search-check img{
+    display: none;
+}
+.search-check:active >  img{
+    display: inline;
+}
+
+.nav {
+    width: fit-content;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+.main-navigation{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(235, 24%, 19%);
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+.main-navigation-ligth{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(0, 0%, 98%);
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+.main-navigation p{
+    color: hsl(235, 16%, 43%);
+    font-family:Josefin Sans;
+    transition: 0.5s ease-in-out;
+}
+.main-navigation-ligth p{
+    color: hsl(235, 16%, 43%);
+    font-family:Josefin Sans;
+    transition: 0.5s ease-in-out;
+}
+html body .clear{
+    margin-right: 3%;
+    cursor: pointer;
+}
+.nav-p{
+    cursor: pointer;
+}
+html body .count{
+    margin-left: 3%;
+}
+.nav-p:hover{
+    color: hsl(220, 98%, 61%);
+}
+
+.clear:hover{
+    color: hsl(220, 98%, 61%);
+}
+.footer{
+    width: 100%;
+    height: 60px;
+
+}
+

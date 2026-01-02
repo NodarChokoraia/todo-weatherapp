@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Bricolage+Grotesque:200,300,regular,500,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import "tailwindcss";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    width: 100vw;
+    background-color: hsl(243, 96%, 9%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 1200px;
+    padding-top: 30px;
+    position: relative;
+    height: 100%;
+}
+
+.units-dropdown-meniu{
+    padding: 7.5px 15px;
+    display: flex;
+    align-items: center;
+    background-color:#272541 ;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: Dm sans;
+    gap: 7px;
+    cursor: pointer;
+    position: relative;
+}
+.navigation{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.main{
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top:10px ;
+}
+.meniu{
+    padding: 10px;
+}
+.units{
+    width: 100%;
+    text-align: start;
+    color: white;
+    font-family: DM SANS;
+    cursor: pointer;
+    padding: 8px 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+}
+.units:hover{
+    background-color:  hsla(240, 6%, 70%, 0.11);
+}
+.mesurments{
+    padding: 0px 5px;
+    font-family: Bricolage Grotesque;
+    font-size: 15px;
+    color: hsl(240, 6%, 70%);
+}
+.input{
+    padding-left: 40px;
+    padding-right: 10px;
+}
+.input:focus{
+    outline: none;
+}
+.submit-search{
+    width: 80px;
+    height: 44px;
+    background-color: hsl(248, 70%, 36%);
+    color: white;
+    font-family: DM sans;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mains-main{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    margin-top: 40px;
+    grid-template-rows: repeat(4,25%);
+}

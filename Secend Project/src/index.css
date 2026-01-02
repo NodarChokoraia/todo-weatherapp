@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100vh;
+  background-color: hsl(235, 21%, 11%);
+  display: flex;
+  padding-top: 50px;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.header{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+main{
+  width: 38vw;
+  height: fit-content;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.main-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  
+}
+
+.main-header > h1{
+  font-family: Josefin Sans;
+  font-size: 40px;
+  color: white;
+  letter-spacing: 10px;
+}
+
+.main-header > button{
+  background-color: transparent;
+  border: none;
+}
+.main-header > button > img{
+  cursor: pointer;
+}
+
+.footer-p{
+  width: fit-content;
+  height: fit-content;
+  color: hsl(236, 9%, 61%);
+  font-family: Josefin Sans;
+  margin-top: 30px;
+}
+.list-container{
+  width: 100%;
+  height: fit-content;
+  
+}
+.main-list{
+  width: 100%;
+  
+  margin-top: 20px;
+  overflow-y: auto;
+}
+
+.vanish{
+  display: none;
+}
+
+
+@media (max-width:1200px){
+    main{
+        width: 60vw;
+    }
+    
+}
+@media (max-width:700px){
+    main{
+        width: 80vw;
+    }
+    .header {
+      height: 50vh;
+    }
+}
+@media (max-width:550px){
+    main{
+        width: 90vw;
+    }
+}
+@media (max-width:500px){
+    .main-navigation{
+      flex-direction: column;
+      gap: 10px;
+      height: fit-content;
+      padding: 10px 0px;
+      align-items: center;
+      
+    }
+    .main-navigation-ligth{
+      flex-direction: column;
+      gap: 10px;
+      height: fit-content;
+      padding: 10px 0px;
+      align-items: center;
+      
+    }
+}
