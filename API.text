@@ -1,7 +1,0 @@
-1api:https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api key}&units=metric
-1api key:839d7ddc348c431160fc6ae9388bbb0e
-
-2api:https://api.worldweatheronline.com/premium/v1/weather.ashx?key={apikey}&q={city}&num_of_days=7&tp=3&format=JSON
-2api key:fe8f53162d39413ba73135544252812
-
-2api format xml:
