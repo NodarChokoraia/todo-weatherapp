@@ -12,6 +12,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+    
+    
 }
 .container{
     width: 1200px;
@@ -48,6 +51,11 @@ body{
     height: 100%;
     position: relative;
     padding-top:10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 .meniu{
     padding: 10px;
@@ -94,7 +102,201 @@ body{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(10, 10%);
+    grid-template-columns: repeat(100, 1%);
     margin-top: 40px;
-    grid-template-rows: repeat(4,25%);
+    grid-template-rows: repeat(100,1%);
+}
+.weather{
+    grid-column: 1 / 66;
+    height: 250px;
+    background: url('src/assets/images/bg-today-large.svg');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    
+    padding-left: 20px;
+}
+.ApiError{
+    margin-top: 20px;
+}
+
+.descriptions{
+    grid-column: 1 / 66;
+    grid-row: 55;
+    display: flex;
+    gap: 15px;
+}
+
+.description-div{
+    width: 183px;
+    height: 100px;
+    background-color: #272541;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.div-h{
+    color: hsl(240,6%,70%);
+    font-size: 18px;
+    font-family:Dm sans;
+}
+.div-p{
+    color: white;
+    font-family: Bricolage Grotesque;
+    font-size: 30px;
+}
+/* text-[hsl(240,6%,70%)] text-[20px] font-[Bricolage Grotesque] */
+.forecast-wrapper {
+    display: flex;
+    gap: 24px;
+    padding: 30px;
+}
+
+/* DAILY */
+.daily {
+    grid-column: 1 /66;
+    grid-row: 76;
+    
+    border-radius: 18px;
+}
+
+.daily-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.current-day {
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.daily-cards {
+    display: flex;
+    gap: 14px;
+}
+
+.day-card {
+  background-color:#272541;
+  border-radius: 16px;
+  width: 100%;
+  padding: 14px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+ 
+}
+
+.day {
+  font-size: 14px;
+  align-self:center;
+  color: white;
+}
+
+.icon {
+  font-size: 26px;
+  margin: 10px 0;
+  
+}
+
+.temps {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  align-self: center;
+}
+.temp-placeholder {
+     color: white;
+}
+
+/* HOURLY */
+.hourly {
+    width: 300px;
+    background-color:#272541;
+    padding: 20px;
+    border-radius: 18px;
+    grid-row: 1 /150; 
+    grid-column: 70;
+    height: 100%;
+}
+
+.hourly-head {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 16px;
+    
+    
+}
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown {
+    background: hsl(243, 23%, 30%);
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    gap:10px;
+    color: white;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    background: hsl(243, 23%, 30%);
+    border-radius: 10px;
+    width: 150px;
+    overflow: hidden;
+    
+    
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+      color: white;
+}
+
+.dropdown-item:hover {
+    background: hsla(240, 6%, 70%, 0.11);
+}
+
+.hour {
+  background-color:#3e3b64;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    align-items: center;
+    
+}
+.hour span {
+  margin-right: 8px;
+}
+
+.hour .temp-placeholder {
+  margin-left: auto;
+}
+
+.day{
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+}
+.hh{
+    color: white;
+    font-weight: bold;
 }

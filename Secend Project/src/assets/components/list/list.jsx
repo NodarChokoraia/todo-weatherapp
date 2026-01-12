@@ -1,62 +1,36 @@
 import React, { useState} from "react";
 import './list.css'
 export default function List(props){
-    let [count,setcount] = useState(0)
-    let handleclick = (e) => {
-        e.target.parentElement.parentElement.remove()
-        setcount(val => val+1)
-       
-    }
-    let handleclick2 = (e) => {
-        if(e.target.className == 'list-check'){
-
-
-
-
-            if(e.target.parentElement.className == 'list' ||e.target.parentElement.className == 'list-ligth'){
-                if(document.body.className == 'white'){
-                     e.target.parentElement.className = 'list-active-ligth'
-                }else {
-                    e.target.parentElement.className = 'list-active'
-                }
-                
-            }else if (e.target.parentElement.className != 'list'){
-                if(document.body.className == 'white'){
-                    e.target.parentElement.className = 'list-ligth'
-                }else {
-                    e.target.parentElement.className = 'list'
-                }
-                
-            }
-        }else{
-            if(e.target.parentElement.parentElement.className == 'list' ||e.target.parentElement.parentElement.className == 'list-ligth'){
-                if(document.body.className == 'white'){
-                     e.target.parentElement.className = 'list-active-ligth'
-                }else {
-                    e.target.parentElement.className = 'list-active'
-                }
-            }else if (e.target.parentElement.parentElement.className != 'list'){
-                if(document.body.className == 'white'){
-                    e.target.parentElement.parentElement.className = 'list-ligth'
-                }else {
-                    e.target.parentElement.parentElement.className = 'list'
-                }
-                
-            }
-        }
-        
-        
-        
-    }
-
-    
-    
+    let setcomplated = props.setcomps
+    let ligth = props.ligth
+    let key = props.index
+    let {text,complated} = props.items
     return(
         <>
-            <div className={'list'}>
-                <button className="list-check" onClick={handleclick2}><img src="src/assets/images/icon-check.svg" alt="" /></button>
-                <div className="list-div"><p className="list-p">{props.text}</p></div>
-                <button className="list-cross" onClick={handleclick}> <img src="src/assets/images/icon-cross.svg" alt="" /></button>
+            <div className={!complated?'list'+ligth:'list-active'+ligth}>
+                <button className='list-check' onClick={()=> {
+                   
+                   
+                   setcomplated(val => val.map((value,i) => 
+                    ({
+                        ...value,
+                        ...(key == i?{complated:!value.complated}:{})
+                    })
+                    
+            
+                   
+                    
+                        
+                   ))
+
+
+                   
+                    
+                    
+                    
+                }}><img src="src/assets/images/icon-check.svg" alt="" /></button>
+                <div className="list-div"><p className="list-p">{text}</p></div>
+                <button className="list-cross" onClick={() => setcomplated(val => val.filter((value,i) => i != key))}> <img src="src/assets/images/icon-cross.svg" alt="" /></button>
             </div>
             
         </>

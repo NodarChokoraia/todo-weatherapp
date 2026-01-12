@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-body{
+.container{
   height: 100vh;
   background-color: hsl(235, 21%, 11%);
   display: flex;
@@ -12,13 +12,24 @@ body{
   width: 100%;
   flex-direction: column;
   overflow-y: auto;
+  position: relative;
+}
+.container-ligth{
+  height: 100vh;
+  background-color:white;
+  display: flex;
+  padding-top: 50px;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
 }
 .header{
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
 }
 
 main{
@@ -71,9 +82,7 @@ main{
   overflow-y: auto;
 }
 
-.vanish{
-  display: none;
-}
+
 
 
 @media (max-width:1200px){
