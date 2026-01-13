@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Bricolage+Grotesque:200,300,regular,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import "tailwindcss";
+
 *{
     margin: 0;
     padding: 0;
@@ -109,7 +110,7 @@ body{
 .weather{
     grid-column: 1 / 66;
     height: 250px;
-    background: url('src/assets/images/bg-today-large.svg');
+    background: url('./assets/images/bg-today-large.svg');
     background-size: cover;
     background-position: center center;
     border-radius: 20px;
@@ -182,6 +183,7 @@ body{
   background-color:#272541;
   border-radius: 16px;
   width: 100%;
+  
   padding: 14px 10px;
   text-align: center;
   display: flex;
@@ -266,7 +268,7 @@ body{
     padding: 8px 12px;
     cursor: pointer;
     font-size: 13px;
-      color: white;
+    color: white;
 }
 
 .dropdown-item:hover {
@@ -299,4 +301,69 @@ body{
 .hh{
     color: white;
     font-weight: bold;
+}
+
+
+@media (max-width:1200px) {
+    .mains-main{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    .container{
+        width: 100vw;
+    }
+    main{
+        width: 100%;
+    }
+    .weather{
+        width: 90%;
+    }
+    .hourly{
+        width: 90%;
+    }
+    .daily{
+        width: 90%;
+    }
+    
+    .navigation{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+@media (max-width:800px) {
+    .descriptions{
+        flex-wrap: wrap;
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+    }
+    .weather{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width:520px){
+    .submit-search{
+        width: 280px;
+    }
+    .daily-cards{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .units-dropdown-meniu{
+        margin-right: 20px;
+    }
 }

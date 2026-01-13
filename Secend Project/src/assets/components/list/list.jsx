@@ -1,5 +1,9 @@
 import React, { useState} from "react";
 import './list.css'
+//images{
+import check from '../../images/icon-check.svg'
+import cross from '../../images/icon-cross.svg'
+//}
 export default function List(props){
     let setcomplated = props.setcomps
     let ligth = props.ligth
@@ -28,9 +32,9 @@ export default function List(props){
                     
                     
                     
-                }}><img src="src/assets/images/icon-check.svg" alt="" /></button>
+                }}><img src={check} alt="" /></button>
                 <div className="list-div"><p className="list-p">{text}</p></div>
-                <button className="list-cross" onClick={() => setcomplated(val => val.filter((value,i) => i != key))}> <img src="src/assets/images/icon-cross.svg" alt="" /></button>
+                <button className="list-cross" onClick={() => setcomplated(val => val.filter((value,i) => i != key))}> <img src={cross} alt="" /></button>
             </div>
             
         </>

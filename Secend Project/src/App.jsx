@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import './assets/components/search/search.css'
 import List from './assets/components/list/list'
-
-
+//images{
+import bgDesktopDark from './assets/images/bg-desktop-dark.jpg'
+import bgDesktopLigth from './assets/images/bg-desktop-light.jpg'
+import sun from './assets/images/icon-sun.svg'
+import moon from './assets/images/icon-moon.svg'
+import check from './assets/images/icon-check.svg'
+//}
 function App() {
     let [inputval,setinputval] = useState('')
     let [placeholder,setplaceholder] = useState('Create a new todo...')
@@ -13,12 +18,12 @@ function App() {
       <>
         <div className={'container' + ligththem}>
             <header >
-              <img className="header" src={ligththem == '-ligth' ? 'src/assets/images/bg-desktop-light.jpg' : 'src/assets/images/bg-desktop-dark.jpg'}  alt="" />
+              <img className="header" src={ligththem == '-ligth' ? bgDesktopLigth: bgDesktopDark}  alt="" />
             </header>
             <main>
               <div className="main-header">
                   <h1>TODO</h1>
-                  <button className='dark-ligth' onClick={()=> setligththem(val => val == '' ? '-ligth' : '')}><img src={ligththem == '-ligth' ? 'src/assets/images/icon-moon.svg' : 'src/assets/images/icon-sun.svg'} alt="" /></button>
+                  <button className='dark-ligth' onClick={()=> setligththem(val => val == '' ? '-ligth' : '')}><img src={ligththem == '-ligth' ? moon: sun} alt="" /></button>
               </div>
     
                           <div className={"main-search"+ ligththem} >
@@ -40,7 +45,7 @@ function App() {
                                 list.forEach(val => console.log(val))
                                 
                                 setinputval('')
-                              }}><img src="src/assets/images/icon-check.svg" alt="" /></button>
+                              }}><img src={check} alt="" /></button>
                               <input value={inputval} placeholder={placeholder} id='input' onInput={(e) => setinputval(e.target.value)}/>
                               
                           </div>

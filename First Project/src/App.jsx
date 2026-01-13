@@ -1,5 +1,24 @@
-import { use } from "react"
 import {useState} from "react"
+import React from "react"
+
+//images{
+  //icons
+  import dropdownIcon from './assets/images/icon-dropdown.svg'
+  import check from './assets/images/icon-checkmark.svg'
+  import search from './assets/images/icon-search.svg'
+  import units from './assets/images/icon-units.svg'
+  import logo from './assets/images/logo.svg'
+  //images
+  import dizzle from './assets/images/icon-drizzle.webp'
+  import fog from './assets/images/icon-fog.webp'
+  import clouds from './assets/images/icon-partly-cloudy.webp'
+  import rain from './assets/images/icon-rain.webp'
+  import snow from './assets/images/icon-snow.webp'
+  import thunderstorm from './assets/images/icon-storm.webp'
+  import sun from './assets/images/icon-sunny.webp'
+//}
+
+
 
 function App() {
   let [meniu,setmeniu] = useState(false)
@@ -14,8 +33,8 @@ function App() {
   let date = new Date()
   let weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
   let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-  let images = ['icon-drizzle.webp','icon-fog.webp','icon-partly-cloudy.webp','icon-rain.webp','icon-snow.webp','icon-storm.webp','icon-sunny.webp']
   let weathers = ['Drizzle','Fog','Clouds','Rain','Snow','Thunderstorm','Clear']
+  let weathers1 = [dizzle,fog,clouds,rain,snow,thunderstorm,sun]
   let [image,setimage ]= useState('')
   let [data2,setData2] = useState()
   let [daily,setDaily] = useState([])
@@ -44,16 +63,16 @@ function App() {
     if (valinput == '') {return;}
    if(!weathers.includes(image1.weather[0].main) ){
                           if(image1.weather[0].main =='Mist' || image1.weather[0].main =='Smoke' || image1.weather[0].main =='Haze' || image1.weather[0].main =='Dust' || image1.weather[0].main =='Ash' ||image1.weather[0].main =='Squall' ){
-                            setimage('icon-fog.webp')
+                            setimage(fog)
                           }else {
-                            setimage('icon-sunny.webp')
+                            setimage(sun)
                           }
                           
                         }
                         else{
                           for(let i = 0;i < weathers.length;i++){
                             if(image1.weather[0].main == weathers[i]){
-                              setimage(images[i])
+                              setimage(weathers1[i])
                               
                             }
                             
@@ -77,6 +96,7 @@ function App() {
               time:e.time / 100 + ':00',
               tempC1:e.tempC + '°C',
               tempF1:e.tempF +'°F'
+              
             }
 
           ])
@@ -88,15 +108,16 @@ function App() {
   let dailyCast = data => {
     if(data.data.error) return;
     setDaily([])
-    for(let i of data.data.weather){
+    for(let i = 0 ;i< data.data.weather.length ;i++){
       
         
           setDaily(val => [
             ...val,
             {
-              day:weekdays[(new Date(i.date)).getDay()].slice(0,3),
-              tempC1:i.avgtempC + '°C',
-              tempF1:i.avgtempF +'°F'
+              day:weekdays[(new Date(data.data.weather[i].date)).getDay()].slice(0,3),
+              tempC1:data.data.weather[i].avgtempC + '°C',
+              tempF1:data.data.weather[i].avgtempF +'°F',
+              image:weathers1[i]
             }
 
           ])
@@ -110,9 +131,9 @@ function App() {
       <div className="container">
         <nav className="navigation">
           
-            <img src="src/assets/images/logo.svg" alt="" />
+            <img src={logo} className="max-[520px]: w-40" alt="" />
             <button className="units-dropdown-meniu" onClick={e =>{if(e.target.className != 'meniu'){setmeniu(val => !val ? true : false)}}}>
-              <img src="src/assets/images/icon-units.svg" alt="" /> Units <img src="src/assets/images/icon-dropdown.svg" alt="" /> 
+              <img src={units} alt="" /> Units <img src={dropdownIcon} alt="" /> 
            
             </button>
              
@@ -128,37 +149,37 @@ function App() {
                 <button className="units" onClick={() => {
                   setremperature('C')
                   API()
-                  }}>Celsius (C) <img src={temperature == 'C' ? "src/assets/images/icon-checkmark.svg" : null} alt="" /></button>
+                  }}>Celsius (C) <img src={temperature == 'C' ? check : null} alt="" /></button>
                 <button className="units" onClick={() => {
                   setremperature('F')
                   API()
-                }}>Fahrenheit (F) <img src={temperature == 'F' ?"src/assets/images/icon-checkmark.svg" : null} alt="" /></button>
+                }}>Fahrenheit (F) <img src={temperature == 'F' ? check : null} alt="" /></button>
                 <div></div>
                 <p className="mesurments">Wind Speed</p>
-                <button className="units" onClick={() => setWindSpeed('km/h')}>km/h <img src={WindSpeed == 'km/h' ? "src/assets/images/icon-checkmark.svg" : null} alt="" /></button>
-                <button className="units" onClick={() => setWindSpeed('mph')}>mph <img src={WindSpeed == 'mph' ? "src/assets/images/icon-checkmark.svg": null} alt="" /></button>
+                <button className="units" onClick={() => setWindSpeed('km/h')}>km/h <img src={WindSpeed == 'km/h' ? check : null} alt="" /></button>
+                <button className="units" onClick={() => setWindSpeed('mph')}>mph <img src={WindSpeed == 'mph' ? check: null} alt="" /></button>
                 <div></div>
                 <p className="mesurments">Percipotation</p>
-                <button className="units" onClick={() => setPercipotation('mm')}>Millimeters (mm) <img src={Percipotation == 'mm' ? "src/assets/images/icon-checkmark.svg" : null} alt="" /></button>
-                <button className="units" onClick={() => setPercipotation('in')}>Inches (in) <img src={Percipotation == 'in' ?"src/assets/images/icon-checkmark.svg" : null} alt="" /></button>
+                <button className="units" onClick={() => setPercipotation('mm')}>Millimeters (mm) <img src={Percipotation == 'mm' ? check : null} alt="" /></button>
+                <button className="units" onClick={() => setPercipotation('in')}>Inches (in) <img src={Percipotation == 'in' ?check : null} alt="" /></button>
               </div>
 
 
 
               <div className="w-full h-fit flex flex-col items-center gap-5">
-                <p className="text-white text-[40px] font-[Bricolage Grotesque] font-bold">How's the sky looking today ?</p>
-                <div className="h-fit flex gap-5 items-center">
+                <p className="text-white text-[40px] font-[Bricolage Grotesque] font-bold max-[600px]:text-[20px]">How's the sky looking today ?</p>
+                <div className="h-fit flex gap-5 items-center max-[520px]:flex-col">
                   <div className="h-fit relative">
-                    <input className="input w-100 h-11 rounded-[5px] text-[white] font-[DM Sans] bg-[#272541]" type="text" value={valinput} placeholder="Search for a place..."  onInput={e => {
+                    <input className="input w-100 h-11 rounded-[5px] text-[white] font-[DM Sans] bg-[#272541] max-[520px]:w-70" type="text" value={valinput} placeholder="Search for a place..."  onInput={e => {
                       setinput(e.target.value)
                     }}/>
-                    <img src="src/assets/images/icon-search.svg" alt=""  className="absolute top-[30%] left-[3%]"/>
+                    <img src={search} alt=""  className="absolute top-[30%] left-[3%]"/>
                   </div>
                     <button className="submit-search" onClick={() => {
                         setinput('')
                         imageapi()
                         API()
-                        console.log(weather && weather.data.error );
+                        
                         
                     }}>Search</button>
                 </div>
@@ -178,15 +199,15 @@ function App() {
               {weather && !weather.data.error ? <div className="mains-main">
                 <div className="weather">
                   
-                    <div className="w-1/2 h-fit flex flex-col gap-1">
+                    <div className="cont w-1/2 h-fit flex flex-col gap-1 max-[1200px]:w-full">
                       <p className="text-white text-[22px] font-[Bricolage Grotesque] font-bold">{weather != '' ? weather.data.request[0].query: ''}</p>
                       <p className="text-[hsl(240,6%,70%)] text-[20px] font-[Bricolage Grotesque]">{weekdays[date.getDay()]}, {months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
                     </div>
 
-                    <div className="w-1/2 h-fit flex items-center justify-center">
+                    <div className="w-1/2 h-fit flex items-center justify-center max-[1200px]:w-full">
 
-                      <img src={'src/assets/images/' + image} alt="" className="w-40"/>
-                      <p className="text-white text-[60px] font-[Bricolage Grotesque] font-bold">
+                      <img src={image} alt="" className="w-40"/>
+                      <p className="text-white text-[60px] font-[Bricolage Grotesque] font-bold max-[520px]:text-[40px]">
                           {temperature == 'F' ? weather.data.current_condition[0].temp_F + '°F': weather.data.current_condition[0].temp_C +'°C'}
 </p>
 
@@ -232,8 +253,8 @@ function App() {
               <div className="daily-cards">
                 {daily.map((val,i) => (
                   <div className="day-card" key={i}>
-                    <span className="day">{val.day}</span>
-                    <span className="icon">☁️</span>
+                    <span className="day" >{val.day}</span>
+                    <img className="icon" src={val.image}/> 
                     <span className="temps">
                       <span className="temp-placeholder">{temperature == 'F' ? val.tempF1 : val.tempC1}</span>
                     
@@ -255,7 +276,7 @@ function App() {
                   onClick={() => setOpen(!open)}
                 >
                   {day} 
-                  <img src="src/assets/images/icon-dropdown.svg" alt="" />
+                  <img src={dropdownIcon} alt="" />
                 </div>
 
                 {open && (
